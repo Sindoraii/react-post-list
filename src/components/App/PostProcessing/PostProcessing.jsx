@@ -7,22 +7,18 @@ import SelectBar from "./SelectBar/SelectBar";
  */
 function PostProcessing({allPosts,getCurrentPosts}) {
     const countPosts = allPosts.length;
-    const selectValue = 10;  //stub values todo
-    const totalPages =  Math.ceil(countPosts / selectValue);
-    const pages = getArrOfPages(totalPages);
-
     const [currentPosts,setCurrentPosts] = useState(allPosts);
+    const [currentCountPosts,setCurrentCountPosts] = useState(countPosts); //select value
+
+    const totalPages =  Math.ceil(countPosts / currentCountPosts);
+    const pages = getArrOfPages(totalPages);
     const [currentPage,setCurrentPage] = useState(pages[0]);
-    const [currentCountPosts,setCurrentCountPosts] = useState(countPosts)
 
-console.log('currentCountPosts',currentCountPosts)
-console.log('currentPage',currentPage)
-console.log('select value',currentCountPosts)
 
-    function getArrOfPages(max) {
+    function getArrOfPages(lastPage) {
         const pages = [];
 
-        for(let i = 1; i <= max; i++) {
+        for(let i = 1; i <= lastPage; i++) {
             pages.push(i);
         }
         return pages;
