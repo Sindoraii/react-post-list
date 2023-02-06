@@ -1,18 +1,24 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Pagination from "./Pagination/Pagination";
 import SelectBar from "./SelectBar/SelectBar";
 
 /**
- * @param allPosts:json - posts from a request
+ * @param allPosts:array - posts from a request
+ * @param getCurrentPosts:function - callback for setCurrentPost of PostProcessing component
  */
 function PostProcessing({allPosts,getCurrentPosts}) {
     const countPosts = allPosts.length;
-    const [currentPosts,setCurrentPosts] = useState(allPosts);
     const [currentCountPosts,setCurrentCountPosts] = useState(countPosts); //select value
 
     const totalPages =  Math.ceil(countPosts / currentCountPosts);
     const pages = getArrOfPages(totalPages);
     const [currentPage,setCurrentPage] = useState(pages[0]);
+
+    useEffect(filterPosts,[currentPage,currentCountPosts]);
+    /* reset page when select value has changed */
+    useEffect(()=> {
+         setCurrentPage(pages[0]);
+    },[currentCountPosts])
 
 
     function getArrOfPages(lastPage) {
@@ -22,6 +28,15 @@ function PostProcessing({allPosts,getCurrentPosts}) {
             pages.push(i);
         }
         return pages;
+    }
+
+    function filterPosts() {
+        console.log('cur page',currentPage)
+        console.log("select value",currentCountPosts)
+
+        const start = currentPage * currentCountPosts - currentCountPosts;
+        const end = currentPage * currentCountPosts ;
+        getCurrentPosts(allPosts.slice(start,end))
     }
 
     function handlerCurrentPage(e) {

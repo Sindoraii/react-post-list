@@ -5,6 +5,7 @@ import PostProcessing from "./PostProcessing/PostProcessing";
 function App() {
     const servicePosts = new PostApi();
     const [allPosts,setAllPosts] = useState([]);
+    const [currentPosts,setCurrentPosts] = useState([]);
 
     useEffect(()=> {
         async function fetchPosts() {
@@ -18,9 +19,20 @@ function App() {
         fetchPosts();
     },[]);
 
+
+    /**
+     * @param posts:array -  posts for showing
+     */
+    function currentPostsHandler(posts){
+        setCurrentPosts(posts)
+    }
+    console.log('SHOWING POSTS',currentPosts)
+
     /* rendering */
     if(allPosts.length !== 0) {
-           return  <PostProcessing allPosts={allPosts} />
+           return  <PostProcessing allPosts={allPosts}
+                    getCurrentPosts={currentPostsHandler}
+           />
         }
 }
 
