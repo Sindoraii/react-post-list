@@ -31,9 +31,6 @@ function PostProcessing({allPosts,getCurrentPosts}) {
     }
 
     function filterPosts() {
-        console.log('cur page',currentPage)
-        console.log("select value",currentCountPosts)
-
         const start = currentPage * currentCountPosts - currentCountPosts;
         const end = currentPage * currentCountPosts ;
         getCurrentPosts(allPosts.slice(start,end))

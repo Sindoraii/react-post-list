@@ -1,6 +1,7 @@
 import PostApi from "../API/PostApi";
 import {useEffect, useState} from "react";
 import PostProcessing from "./PostProcessing/PostProcessing";
+import ViewManager from "./ViewManager/ViewManager";
 
 function App() {
     const servicePosts = new PostApi();
@@ -26,13 +27,16 @@ function App() {
     function currentPostsHandler(posts){
         setCurrentPosts(posts)
     }
-    console.log('SHOWING POSTS',currentPosts)
+
 
     /* rendering */
     if(allPosts.length !== 0) {
-           return  <PostProcessing allPosts={allPosts}
-                    getCurrentPosts={currentPostsHandler}
-           />
+        return (
+            <>
+                <PostProcessing allPosts={allPosts} getCurrentPosts={currentPostsHandler}/>
+                <ViewManager currentPosts={currentPosts}/>
+            </>
+           )
         }
 }
 
