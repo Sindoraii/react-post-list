@@ -51,6 +51,7 @@ function PostProcessing({allPosts,getCurrentPosts}) {
 
     return(
         <>
+            <h1>POSTS</h1>
             <SelectBar
                 totalPosts={countPosts}
                 handler={handlerSelectValue}

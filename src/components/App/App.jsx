@@ -2,6 +2,7 @@ import PostApi from "../API/PostApi";
 import {useEffect, useState} from "react";
 import PostProcessing from "./PostProcessing/PostProcessing";
 import ViewManager from "./ViewManager/ViewManager";
+import styles from "./App.module.css";
 
 function App() {
     const servicePosts = new PostApi();
@@ -32,10 +33,10 @@ function App() {
     /* rendering */
     if(allPosts.length !== 0) {
         return (
-            <>
+            <main className={styles.content}>
                 <PostProcessing allPosts={allPosts} getCurrentPosts={currentPostsHandler}/>
                 <ViewManager currentPosts={currentPosts}/>
-            </>
+            </main>
            )
         }
 }
