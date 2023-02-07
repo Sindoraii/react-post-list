@@ -37,7 +37,7 @@ function PostProcessing({allPosts,getCurrentPosts}) {
     }
 
     function handlerCurrentPage(e) {
-        if(e.target.className === 'numberPage') {
+        if(e.target.type === 'button') {
             setCurrentPage(e.target.textContent)
         }
     }
