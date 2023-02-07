@@ -1,4 +1,5 @@
 import styles from "./PostListItem.module.css"
+import {LikeButton} from "../../../../UI/Buttons/LikeButton/LikeButton";
 
 /**
  * @param post:object - data for creating a post item
@@ -13,9 +14,9 @@ function PostListItem({post}) {
              <div>
                  <p>{post.body}</p>
              </div>
-             <footer>
-                 <a href="">Comments</a>
-                 <button type="button">Like</button>
+             <footer className={styles.footer}>
+                 <a>Comments</a>
+                 <LikeButton/>
              </footer>
          </article>
     )
