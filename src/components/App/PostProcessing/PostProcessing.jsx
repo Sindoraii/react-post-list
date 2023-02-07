@@ -10,6 +10,7 @@ function PostProcessing({allPosts,getCurrentPosts}) {
     const countPosts = allPosts.length;
     const [currentCountPosts,setCurrentCountPosts] = useState(countPosts); //select value
 
+
     const totalPages =  Math.ceil(countPosts / currentCountPosts);
     const pages = getArrOfPages(totalPages);
     const [currentPage,setCurrentPage] = useState(pages[0]);
@@ -42,10 +43,8 @@ function PostProcessing({allPosts,getCurrentPosts}) {
         }
     }
 
-    function handlerSelectValue(e) {
-        if(e.target.closest('.selectBar') && !e.target.disabled) {
-            setCurrentCountPosts(Number(e.target.value))
-        }
+    function handlerSelectValue(currentSelectValue) {
+            setCurrentCountPosts(currentSelectValue);
     }
 
 

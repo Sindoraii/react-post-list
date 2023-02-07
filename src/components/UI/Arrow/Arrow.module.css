@@ -1,0 +1,16 @@
+.arrowInactive {
+    display: inline-block;
+    height: 0;
+    border: solid var(--color-blue-dark);
+    border-width: 0 3px 3px 0;
+    padding: 4px;
+    transform: rotate(-135deg);
+}
+.arrowActive {
+    height: 0;
+    display: inline-block;
+    border: solid var(--color-blue-dark);
+    border-width: 0 3px 3px 0;
+    padding: 4px;
+    transform: rotate(45deg);
+}

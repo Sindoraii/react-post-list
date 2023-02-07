@@ -1,19 +1,37 @@
+import {useState} from "react";
+import {Arrow} from "../../../UI/Arrow/Arrow";
+import styles from "./SelectBar.module.css";
+
 /**
  * @param totalPosts - number of all count of post
- * @param handler - callback for getting count of current post to PostProcessing
+ * @param handler - callback for getting count of current posts to PostProcessing
  */
 function SelectBar({totalPosts,handler}) {
+    const [active,setActive] = useState(false);
+    const values = [50,25,10];
+
+
+    function getCurrentValue(e) {
+        if(e.target.value === undefined) {
+            handler(totalPosts)
+        } else {
+            handler(e.target.value)
+        }
+    }
 
     return(
         <>
-            <select className='selectBar'
-                onClick={(e)=>handler(e)}>
-                <option disabled>Post count:</option>
-                <option>{String(totalPosts)}</option>
-                <option>50</option>
-                <option>25</option>
-                <option>10</option>
-            </select>
+            <div className={styles.select}>
+                <header className={styles.header}
+                    onClick={() => setActive(true)}>
+                    <h3>Post count:</h3>
+                    <Arrow isActive={active}/>
+                </header>
+                <ul onClick={(e)=>getCurrentValue(e)}>
+                    <li className={styles.item} value={totalPosts}>{totalPosts}</li>
+                    {values.map((value) => <li key={value} className={styles.item} value={value}>{value}</li>)}
+                </ul>
+            </div>
         </>
     )
 }
