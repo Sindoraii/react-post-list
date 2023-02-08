@@ -1,28 +1,49 @@
 .select {
-   display: flex;
-   flex-direction: column;
-   max-width: 320px;
-   margin: 64px 0 24px 0;
-   cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin-top: 64px;
+    cursor: pointer;
+    position: relative;
 }
+
 .header {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   outline: 1px solid var(--color-blue-light);
-   padding: 10px;
+    height: 29px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: 1px solid var(--color-blue-light);
+    padding: 10px;
+    background-color: black;
 }
+
+.list {
+    position: absolute;
+    background-color: black;
+    top: var(--HEIGHT-SELECT-HEADER);
+    left: -2px;
+    z-index: 1;
+
+}
+
 .item {
-   list-style-type: none;
-   border: solid var(--color-blue-light);
-   padding: 4px;
-   text-align: center;
+    list-style-type: none;
+    border: solid var(--color-blue-light);
+    padding: 4px;
+    text-align: center;
+    width: 309px;
 }
+
 .item:not(:last-of-type) {
-   border-bottom: 0;
+    border-bottom: 0;
 }
+
 .item:hover {
-   background-color: var(--color-blue-light);
-   color: black;
-   cursor: pointer;
+    background-color: var(--color-blue-light);
+    color: black;
+    cursor: pointer;
+}
+
+.countPosts {
+    padding: 4px 0;
 }

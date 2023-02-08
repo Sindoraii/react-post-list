@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Arrow} from "../../../UI/Arrow/Arrow";
 import styles from "./SelectBar.module.css";
 
@@ -9,15 +9,21 @@ import styles from "./SelectBar.module.css";
 function SelectBar({totalPosts, handler}) {
     const [active, setActive] = useState(false);
     const values = [50, 25, 10];
+    const [countPostsPerPage, setCountPostsPerPage] = useState(totalPosts);
+
+    useEffect(() => {
+        handler(countPostsPerPage);
+    }, [countPostsPerPage]);
 
 
-    function getCurrentValue(e) {
+    function handleSelectBar(e) {
         if (e.target.value === undefined) {
-            handler(totalPosts)
+            setCountPostsPerPage(totalPosts);
         } else {
-            handler(e.target.value)
+            setCountPostsPerPage(e.target.value);
         }
     }
+
 
     return (
         <>
@@ -28,14 +34,15 @@ function SelectBar({totalPosts, handler}) {
                                 onClick={() => {
                                     active ? setActive(false) : setActive(true)
                                 }}>
-                            <h3>Post count:</h3>
+                            <h3>Posts per page: {countPostsPerPage}</h3>
                             <Arrow isActive={active}/>
                         </header>
-
-                        <ul onClick={(e) => {
-                            getCurrentValue(e);
-                            setActive(false)
-                        }}>
+                        <p className={styles.countPosts}>Count posts: {totalPosts}</p>
+                        <ul className={styles.list}
+                            onClick={(e) => {
+                                handleSelectBar(e);
+                                setActive(false);
+                            }}>
                             <li className={styles.item} value={totalPosts}>{totalPosts}</li>
                             {values.map((value) => <li key={value} className={styles.item} value={value}>{value}</li>)}
                         </ul>
@@ -46,13 +53,15 @@ function SelectBar({totalPosts, handler}) {
                                 onClick={() => {
                                     active ? setActive(false) : setActive(true)
                                 }}>
-                            <h3>Post count:</h3>
+                            <h3>Posts per page: {countPostsPerPage}</h3>
                             <Arrow isActive={active}/>
                         </header>
+                        <p className={styles.countPosts}>Count posts: {totalPosts}</p>
                     </div>
                 )
             }
         </>
     )
 }
+
 export default SelectBar;

@@ -3,4 +3,6 @@
     column-gap: 16px;
     row-gap: 8px;
     flex-wrap: wrap;
+    padding-top: 16px;
+    max-width: 320px;
 }
