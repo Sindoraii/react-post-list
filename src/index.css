@@ -13,6 +13,7 @@ body,a,p,h1,h2,h3,h4,ul {
 }
 h1 {
     color: var(--color-blue-middle);
+    cursor: default;
 }
 h2,h3,h4 {
   color: var(--color-blue-light);
