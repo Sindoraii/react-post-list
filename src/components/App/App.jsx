@@ -8,14 +8,16 @@ function App() {
     const servicePosts = new PostApi();
     const [allPosts,setAllPosts] = useState([]);
     const [currentPosts,setCurrentPosts] = useState([]);
+    const [error,setError] = useState(null);
 
     useEffect(()=> {
         async function fetchPosts() {
             const request = await servicePosts.getPosts();
+
             if(request.message === undefined) {
                 setAllPosts(request);
             } else {
-                console.log('ERROR',request.message) // todo for ErrorPage
+               setError(request.message);
             }
         }
         fetchPosts();
@@ -38,7 +40,11 @@ function App() {
                 <ViewManager currentPosts={currentPosts}/>
             </main>
            )
-        }
+        } else {
+           return(
+               <ViewManager  currentPosts={[]} error={error}/>
+           )
+    }
 }
 
 export default App;
