@@ -1,5 +1,4 @@
 export class PostApi {
-
     async getPosts() {
         let posts = null;
 

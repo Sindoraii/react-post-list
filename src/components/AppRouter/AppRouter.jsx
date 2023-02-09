@@ -1,13 +1,14 @@
 import {Routes, Route} from "react-router-dom";
 import App from "../App/App";
-import Error from "../../pages/Error/Error";
-
+import NotFound from "../../pages/NotFound/NotFound";
+import Main from "../../pages/Main/Main";
 
 export function AppRouter() {
     return (
         <Routes>
-            <Route path="/" element={<App/>}/>
-            <Route path="error" element={<Error/>}/>
+            <Route path="/" element={<Main/>} />
+            <Route path="posts" element={<App/>}/>
+            <Route path="*" element={<NotFound/>}/>
         </Routes>
     )
 }
