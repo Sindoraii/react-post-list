@@ -3,48 +3,50 @@ import {useEffect, useState} from "react";
 import PostProcessing from "./PostProcessing/PostProcessing";
 import ViewManager from "./ViewManager/ViewManager";
 import styles from "./App.module.css";
+import {Outlet} from "react-router-dom";
+import {useFetch} from "./hooks/useFetch";
 
 function App() {
     const servicePosts = new PostApi();
-    const [allPosts,setAllPosts] = useState([]);
-    const [currentPosts,setCurrentPosts] = useState([]);
-    const [error,setError] = useState(null);
+    const [allPosts, setAllPosts] = useState([]);
+    const [currentPosts, setCurrentPosts] = useState([]);
+    const [fetchPosts, isLoading, error] = useFetch(async () => {
+        const posts = await servicePosts.getPosts();
+        setAllPosts(posts);
+    });
 
-    useEffect(()=> {
-        async function fetchPosts() {
-            const request = await servicePosts.getPosts();
-
-            if(request.message === undefined) {
-                setAllPosts(request);
-            } else {
-               setError(request.message);
-            }
-        }
+    useEffect(() => {
         fetchPosts();
-    },[]);
-
+    }, []);
 
     /**
      * @param posts:array -  posts for showing
      */
-    function currentPostsHandler(posts){
+    function currentPostsHandler(posts) {
         setCurrentPosts(posts)
     }
 
+    return (
+        <>
+            {allPosts.length !== 0 &&
+                <>
+                    <main className={styles.content}>
+                        <PostProcessing allPosts={allPosts} getCurrentPosts={currentPostsHandler}/>
+                        <ViewManager currentPosts={currentPosts}/>
+                    </main>
+                    <Outlet/>
+                </>
+            }
 
-    /* rendering */
-    if(allPosts.length !== 0) {
-        return (
-            <main className={styles.content}>
-                <PostProcessing allPosts={allPosts} getCurrentPosts={currentPostsHandler}/>
-                <ViewManager currentPosts={currentPosts}/>
-            </main>
-           )
-        } else {
-           return(
-               <ViewManager  currentPosts={[]} error={error}/>
-           )
-    }
+            {error &&
+                <ViewManager currentPosts={[]} error={error}/>
+            }
+
+            {isLoading &&
+                <h1>LOADING...</h1>
+            }
+        </>
+    )
 }
 
 export default App;

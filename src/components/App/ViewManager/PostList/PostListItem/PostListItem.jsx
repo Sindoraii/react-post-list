@@ -1,5 +1,6 @@
 import styles from "./PostListItem.module.css"
 import {LikeButton} from "../../../../UI/Buttons/LikeButton/LikeButton";
+import {Link} from "react-router-dom";
 
 /**
  * @param post:object - data for creating a post item
@@ -16,6 +17,7 @@ function PostListItem({post}) {
              </div>
              <footer className={styles.footer}>
                  <a>Comments</a>
+                 <Link to={`${post.id}`} >Open</Link>
                  <LikeButton/>
              </footer>
          </article>
