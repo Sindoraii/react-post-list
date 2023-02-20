@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {useFetch} from "../../components/App/hooks/useFetch";
 import styles from "./PostPage.module.css";
 import {CommonButton} from "../../components/UI/Buttons/CommonButton/CommonButton";
+import {Loader} from "../../components/UI/Loader/Loader";
 
 function PostPage(){
     const {postId} = useParams();
@@ -22,7 +23,7 @@ function PostPage(){
     return(
         <>
             {isLoading &&
-                <h1>LOADING...</h1>
+                <Loader/>
             }
             {error &&
                <Navigate replace to={"/notFound"}/>

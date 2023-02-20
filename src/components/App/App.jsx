@@ -5,6 +5,7 @@ import ViewManager from "./ViewManager/ViewManager";
 import styles from "./App.module.css";
 import {Outlet} from "react-router-dom";
 import {useFetch} from "./hooks/useFetch";
+import {Loader} from "../UI/Loader/Loader";
 
 function App() {
     const servicePosts = new PostApi();
@@ -43,7 +44,7 @@ function App() {
             }
 
             {isLoading &&
-                <h1>LOADING...</h1>
+                <Loader/>
             }
         </>
     )
