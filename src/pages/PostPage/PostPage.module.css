@@ -31,3 +31,6 @@ html {
     justify-content: space-between;
     padding-top: 16px;
 }
+.author {
+    font-style: italic;
+}

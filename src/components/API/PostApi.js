@@ -1,7 +1,6 @@
-export class PostApi {
+class PostApi {
     async getPosts() {
         let posts = null;
-
         await fetch("https://jsonplaceholder.typicode.com/posts")
             .then((res) => {
                 if(res.ok) {
@@ -11,7 +10,6 @@ export class PostApi {
                 }
             })
             .then((data) => posts = data)
-
         return posts;
     }
 
@@ -26,8 +24,8 @@ export class PostApi {
                }
             })
             .then((data)=> post = data)
+
         return post;
     }
-
 }
 export  default PostApi;
