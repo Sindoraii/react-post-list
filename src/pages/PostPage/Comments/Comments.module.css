@@ -10,3 +10,6 @@
 .title {
     font-size: 24px;
 }
+.email {
+    word-break: break-all;
+}

@@ -31,7 +31,7 @@ export function Comments({postId}) {
                     <h2 className={styles.title}>Comments:</h2>
                     {comments.map((comment) => (
                         <article key={comment.id}>
-                            <h3>{comment.email}</h3>
+                            <h3 className={styles.email}>{comment.email}</h3>
                             <p>{comment.body}</p>
                         </article>
                     ))}

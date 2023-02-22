@@ -21,6 +21,7 @@ html {
     position: absolute;
     top: 0;
     padding: 16px;
+    max-width: 1200px;
 }
 .post {
     padding: 16px;
@@ -33,4 +34,9 @@ html {
 }
 .author {
     font-style: italic;
+}
+@media screen and (max-width: 320px){
+    .container {
+        min-width: 320px;
+    }
 }
