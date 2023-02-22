@@ -31,7 +31,7 @@
     border: solid var(--color-blue-light);
     padding: 4px;
     text-align: center;
-    width: 309px;
+    width: 320px;
 }
 
 .item:not(:last-of-type) {
