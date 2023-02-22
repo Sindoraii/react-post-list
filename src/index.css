@@ -30,6 +30,7 @@ h2 {
 a, a:visited {
     color: var(--color-purple-dark);
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:active {

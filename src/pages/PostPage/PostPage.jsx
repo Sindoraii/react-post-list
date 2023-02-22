@@ -6,6 +6,7 @@ import styles from "./PostPage.module.css";
 import {CommonButton} from "../../components/UI/Buttons/CommonButton/CommonButton";
 import {Loader} from "../../components/UI/Loader/Loader";
 import {Author} from "../../components/API/AuthorApi";
+import {Comments} from "./Comments/Comments";
 
 function PostPage(){
     const [post,setPost] = useState(null);
@@ -59,6 +60,7 @@ function PostPage(){
 
                         </article>
                     </section>
+                    <Comments postId={postId}  />
                 </div>
                 :
                  null
