@@ -16,7 +16,9 @@ function PostListItem({post}) {
                  <p>{post.body}</p>
              </div>
              <footer className={styles.footer}>
-                 <a>Comments</a>
+                 <Link
+                     to={`/posts/${post.id}/comments`}
+                 >Comments</Link>
                  <Link to={`${post.id}`} >Open</Link>
                  <LikeButton/>
              </footer>

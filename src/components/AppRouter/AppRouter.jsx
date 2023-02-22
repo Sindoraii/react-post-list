@@ -10,7 +10,10 @@ export function AppRouter() {
         <Routes>
             <Route path="/" element={<Main/>} />
             <Route path="posts" element={<App/>}/>
-            <Route path="/posts/:postId" element={<PostPage/>}/>
+            <Route path="/posts/:postId" element={<PostPage/>}>
+                <Route path={"comments"} element ={<PostPage/>}/>
+            </Route>
+
             <Route path="notFound" element={<NotFound/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>

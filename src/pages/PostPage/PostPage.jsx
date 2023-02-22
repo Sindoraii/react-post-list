@@ -10,33 +10,30 @@ import {Comments} from "./Comments/Comments";
 
 function PostPage(){
     const [post,setPost] = useState(null);
-    const [author,setAuthor] = useState(null);
+    const [author,setAuthor] = useState('Anonymous');
 
     const {postId} = useParams();
     const Api = new PostApi();
     const AuthorApi = new Author();
     
-    const [fetchPost,isLoadingPost,errorPost] = useFetch(async ()=> {
-        const post = await Api.getPostById(postId)
+    const [fetching,isLoading ,error ] = useFetch(async ()=> {
+        const post = await Api.getPostById(postId);
+        const author = await AuthorApi.getAuthorById(post.userId);
         setPost(post);
-    });
-    const [fetchAuthor,isLoadingAuthor,errorAuthor] = useFetch( async ()=>{
-        const author = await AuthorApi.getAuthorById(postId);
         setAuthor(author);
-    })
-    
-    
-    useEffect(()=> {
-        fetchPost()
-        fetchAuthor()
+    });
+
+    useEffect(  ()=> {
+         fetching()
     },[postId])
     
     return(
         <>
-            {(isLoadingPost || isLoadingAuthor) &&
+            {(isLoading ) &&
                 <Loader/>
             }
-            {errorPost &&
+
+            {error &&
                <Navigate replace to={"/notFound"}/>
             }
 
@@ -49,7 +46,7 @@ function PostPage(){
                             <h2 className={styles.title}>POST #{post.id} {post.title}</h2>
                             <p>{post.body}</p>
                             <div className={styles.wrapper}>
-                                {(author === null) || errorAuthor
+                                {(author === 'Anonymous' )
                                     ? <p className={styles.author}>Anonymous</p>
                                     : <p className={styles.author}>{author.username}</p>
                                 }

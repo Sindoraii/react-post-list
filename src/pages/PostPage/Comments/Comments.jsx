@@ -27,7 +27,7 @@ export function Comments({postId}) {
                 <h2>Comments are not found</h2>
             }
             {
-                <section className={styles.container}>
+                <section className={styles.container} id="comments">
                     <h2 className={styles.title}>Comments:</h2>
                     {comments.map((comment) => (
                         <article key={comment.id}>

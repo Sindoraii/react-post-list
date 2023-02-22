@@ -24,7 +24,6 @@ class PostApi {
                }
             })
             .then((data)=> post = data)
-
         return post;
     }
 }
