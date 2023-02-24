@@ -20,6 +20,11 @@
 .number {
     color: var(--color-blue-light);
 }
+
+.title {
+    word-break: break-all;
+}
+
 .footer {
     display: flex;
     justify-content: space-between;

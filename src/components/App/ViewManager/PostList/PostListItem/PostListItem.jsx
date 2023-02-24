@@ -10,7 +10,7 @@ function PostListItem({post}) {
          <article className={styles.content}>
              <header className={styles.header}>
                  <p className={styles.number}>#{post.id}</p>
-                 <h2>{post.title}</h2>
+                 <h2 className={styles.title}>{post.title}</h2>
              </header>
              <div>
                  <p>{post.body}</p>

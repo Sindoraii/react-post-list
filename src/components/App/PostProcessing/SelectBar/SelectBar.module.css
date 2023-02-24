@@ -47,3 +47,9 @@
 .countPosts {
     padding: 4px 0;
 }
+
+@media screen and (max-width: 380px){
+    .item {
+        max-width: 260px;
+    }
+}

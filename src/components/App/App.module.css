@@ -3,9 +3,3 @@
     padding: 32px;
     border: 1px solid var(--color-blue-dark);
 }
-
-@media screen and (max-width: 320px){
-    .content {
-        width: 320px;
-    }
-}
