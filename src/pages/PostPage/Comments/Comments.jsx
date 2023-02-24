@@ -1,5 +1,5 @@
 import {useFetch} from "../../../components/App/hooks/useFetch";
-import {getAllComments} from "../../../components/API/CommentApi";
+import {getAllComments} from "../../../components/API/commentApi";
 import {useEffect, useState} from "react";
 import {Loader} from "../../../components/UI/Loader/Loader";
 import styles from "./Comments.module.css";

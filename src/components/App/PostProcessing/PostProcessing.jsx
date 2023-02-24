@@ -39,7 +39,7 @@ function PostProcessing({allPosts,getCurrentPosts}) {
 
     function handlerCurrentPage(e) {
         if(e.target.type === 'button') {
-            setCurrentPage(e.target.textContent)
+            setCurrentPage(Number(e.target.textContent))
         }
     }
 
