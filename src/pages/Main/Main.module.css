@@ -1,0 +1,11 @@
+.container {
+    padding: 4px;
+    text-align: center;
+}
+.link {
+    display: block;
+    cursor: pointer;
+    margin-top: 16px;
+    padding: 8px 16px;
+    border: 1px solid var(--color-blue-middle);
+}

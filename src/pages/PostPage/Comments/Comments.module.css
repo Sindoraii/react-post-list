@@ -1,0 +1,15 @@
+.container {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    outline: 1px solid var(--color-blue-dark);
+    padding: 16px;
+
+}
+.title {
+    font-size: 24px;
+}
+.email {
+    word-break: break-all;
+}

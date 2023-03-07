@@ -1,0 +1,55 @@
+.select {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin-top: 64px;
+    cursor: pointer;
+    position: relative;
+}
+
+.header {
+    height: 29px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: 1px solid var(--color-blue-light);
+    padding: 10px;
+    background-color: black;
+}
+
+.list {
+    position: absolute;
+    background-color: black;
+    top: var(--HEIGHT-SELECT-HEADER);
+    left: -2px;
+    z-index: 1;
+
+}
+
+.item {
+    list-style-type: none;
+    border: solid var(--color-blue-light);
+    padding: 4px;
+    text-align: center;
+    width: 320px;
+}
+
+.item:not(:last-of-type) {
+    border-bottom: 0;
+}
+
+.item:hover {
+    background-color: var(--color-blue-light);
+    color: black;
+    cursor: pointer;
+}
+
+.countPosts {
+    padding: 4px 0;
+}
+
+@media screen and (max-width: 380px){
+    .item {
+        max-width: 260px;
+    }
+}

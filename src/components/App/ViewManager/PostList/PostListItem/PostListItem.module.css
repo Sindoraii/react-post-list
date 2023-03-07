@@ -1,0 +1,32 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    margin-top: 48px;
+    padding: 24px;
+    outline: 2px solid var(--color-blue-light);
+}
+
+.content:hover {
+    outline: 2px solid var(--color-purple-dark);
+}
+
+.header {
+    display: flex;
+    align-items: baseline;
+    column-gap: 16px;
+}
+
+.number {
+    color: var(--color-blue-light);
+}
+
+.title {
+    word-break: break-all;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+}
