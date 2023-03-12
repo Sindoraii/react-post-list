@@ -8,9 +8,9 @@ export function AppRouter() {
 
     return (
         <Routes>
-            <Route path="/" element={<Main/>} />
-            <Route path="posts" element={<App/>}/>
-            <Route path="/posts/:postId" element={<PostPage/>}>
+            <Route path="/react-post-list" element={<Main/>} />
+            <Route path="/react-post-list/posts" element={<App/>}/>
+            <Route path="/react-post-list/posts/:postId" element={<PostPage/>}>
                 <Route path={"comments"} element ={<PostPage/>}/>
             </Route>
 

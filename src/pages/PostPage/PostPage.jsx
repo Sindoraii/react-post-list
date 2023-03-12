@@ -50,7 +50,7 @@ function PostPage(){
                                     ? <p className={styles.author}>Anonymous</p>
                                     : <p className={styles.author}>{author.username}</p>
                                 }
-                                <Link to={"/posts"}>
+                                <Link to={"/react-post-list/posts"}>
                                     <CommonButton value={'Close'}/>
                                 </Link>
                             </div>
