@@ -1,4 +1,5 @@
 # react-post-list
+Deploy: https://sindoraii.github.io/react-post-list/
 Creating a post list with select and pagination.  
 Data is getting from https://jsonplaceholder.typicode.com/  
 
