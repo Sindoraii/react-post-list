@@ -17,7 +17,7 @@ function PostListItem({post}) {
              </div>
              <footer className={styles.footer}>
                  <Link
-                     to={`/posts/${post.id}/comments`}
+                     to={`/react-post-list/posts/${post.id}/comments`}
                  >Comments</Link>
                  <Link to={`${post.id}`} >Open</Link>
                  <LikeButton/>

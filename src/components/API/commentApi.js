@@ -1,6 +1,6 @@
 export async function getAllComments() {
     let data = null;
-    await fetch("http://jsonplaceholder.typicode.com/comments")
+    await fetch("https://jsonplaceholder.typicode.com/comments")
             .then((res)=> {
                 if(res.ok) {
                     return res.json();

@@ -7,7 +7,7 @@ function NotFound() {
             <h1>Error 404: Page is not found</h1>
             <div className={styles.subtitle}>
                 <p>There`s nothing here... Please try to go</p>
-                <Link to="/">home</Link>
+                <Link to="/react-post-list">home</Link>
             </div>
         </>
     )
